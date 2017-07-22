@@ -21,13 +21,13 @@ ORIG=$(TOPDIR)/../FRITZ.Box_6490_Cable.de-en-es-it-fr-pl.141.06.83.image
 # Keep original rootfs for diff?
 # sudo dirdiff arm/orig/ arm/squashfs-root/
 #
-KEEP_ORIG = 1
+KEEP_ORIG = 0
 
 # The optional arm package contains some binaries which may as well be installed to
 # to the ftp directory (-> /var/media/ftp/ffritz-arm)
 # To build: "make arm-package"
 #
-#FFRITZ_ARM_PACKAGE=../ffritz-arm-0.4.tar.gz
+FFRITZ_ARM_PACKAGE=./packages/arm/ffritz/ffritz-arm-0.4.tar.gz
 
 
 ## Host tools (unsquashfs4-lzma-avm-be, mksquashfs4-lzma-avm-be) can either be built

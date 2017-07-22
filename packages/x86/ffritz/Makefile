@@ -14,13 +14,15 @@ BR_TGT_BIN  = $(BR_TGT)/usr/bin
 BR_TGT_SBIN = $(BR_TGT)/usr/sbin
 
 BINFILES    = ../mpd/build/src/mpd src/sndlist src/usbplay src/usbplayd src/ffdaemon
+BINFILES   += ../openssh/build/sshd ../openssh/build/ssh-keygen ../openssh/build/sftp-server 
+BINFILES   += ../bash/build/bash ../nano/build/src/nano ../dropbear/build/dropbear
 BINFILES   += $(BR_TGT_BIN)/strace $(BR_TGT_BIN)/ldd $(BR_TGT_SBIN)/tcpdump 
 BINFILES   += $(BR_TGT_BIN)/tcpbridge $(BR_TGT_BIN)/tcpprep $(BR_TGT_BIN)/tcpreplay $(BR_TGT_BIN)/tcpreplay-edit $(BR_TGT_BIN)/tcprewrite
 BINFILES   += $(BR_TGT_BIN)/mpc $(BR_TGT_BIN)/rsync $(BR_TGT_BIN)/socat 
 BINFILES   += $(BR_TGT)/../host/usr/i686-buildroot-linux-uclibc/sysroot/usr/bin/curl
 BINFILES   += $(BR_TGT_SBIN)/openvpn
 BINFILES   += ../shairport/build/shairport
-ETCFILES    = etc/ffritz-env.sh etc/mpd.conf etc/runmpd etc/ff_atom_startup etc/ffservices etc/run_usbplay etc/run_shairport etc/mkusers
+ETCFILES    = etc/ffritz-env.sh etc/mpd.conf etc/runmpd etc/ff_atom_startup etc/ffservices etc/run_usbplay etc/run_shairport etc/mkusers ../openssh/sshd_config
 ETCFILES   += etc/run_lircd etc/lirc_options_dfl.conf etc/upmpdcli.conf-dist
 ETCFILES   += etc/run_openvpn etc/usrmount
 MODFILES    = lib/modules/cdc-acm.ko
@@ -35,7 +37,7 @@ ifeq ($(INSTDIR),)
     INSTDIR=$(STAGEDIR)
 endif
 
-SUBDIRS	    = ../buildroot ../libmaru ../shairport ../libmpdclient ../mpc ../lirc ../libupnpp ../jsoncpp ../upmpdcli ../libnfs ../nfs ../mpd src
+SUBDIRS	    = ../buildroot ../libmaru ../shairport ../libmpdclient ../mpc ../lirc ../libupnpp ../jsoncpp ../upmpdcli ../libnfs ../nfs ../mpd ../bash ../dropbear ../openssh ../nano src
 INSTDIRS    = ../lirc/install ../libupnpp/install ../upmpdcli/install ../nfs/install
 
 .PHONY:	$(SUBDIRS) $(IMAGE)
@@ -79,6 +81,8 @@ install: $(BINFILES) $(ETCFILES) $(INSTDIRS) $(shell test -d $(BR_TGT_LIB) && ls
 	make -C ../libupnpp install DESTDIR=$(INSTDIR)
 	make -C ../upmpdcli install DESTDIR=$(INSTDIR)
 	make -C ../nfs install DESTDIR=$(INSTDIR)
+	cp -r etc/terminfo $(INSTDIR)/etc/terminfo
+	cp -r ../openssh/openssh $(INSTDIR)/etc/openssh
 	cp -a bin/ffwrap $(INSTDIR)/bin/exec
 	@cd $(INSTDIR)/bin; \
 	    for f in `ls | xargs file | grep ELF | sed -e 's/:.*//'`; do\
