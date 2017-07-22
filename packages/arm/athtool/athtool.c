@@ -1,3 +1,4 @@
+
 /* Simple tool to access registers of atheros switch on FB6490.
  *
  * Copyright (C) 2017 - Felix Schmidt
@@ -131,33 +132,12 @@ uint32_t ath_rmw (struct ath_dev *dev, uint32_t reg, uint32_t mask, uint32_t val
 
     if (mask != 0xffffffff)
     {
-	if (extSwitchReadAthReg (reg, &tmp))
-	{
-	    if (err)
-	    {
-		*err = 1;
-		SETERR("extSwitchReadAthReg failed");
-	    }
-	    return 0xffffffff;
-	}
-	
 	verb_printf (2, "ath_rmw: 0x%04x -> 0x%08x\n", reg, tmp);
     }
 
     if (mask != 0)
     {
 	tmp = (tmp & ~mask) | (value & mask);
-
-	if (extSwitchWriteAthReg (reg, tmp))
-	{
-	    if (err)
-	    {
-		*err = 1;
-		SETERR("extSwitchReadAthReg failed");
-	    }
-	    return 0xffffffff;
-	}
-
 	verb_printf (2, "ath_rmw: 0x%04x[0x%08x] <- 0x%08x\n", reg, mask, tmp);
     }
 
@@ -360,12 +340,6 @@ int main (int argc, char **argv)
     if (!dev)
     {
 	perror ("calloc");
-	return 1;
-    }
-
-    if (extSwitchReadAthReg (0, &dev->dev_id))
-    {
-	fprintf (stderr, "athtool :: Failed to read ID register\n");
 	return 1;
     }
 
