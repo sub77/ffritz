@@ -28,6 +28,6 @@ if [ ! -f $FFRITZ_HOME/irexec.lircrc ]; then
     chown ffritz:ffritz $FFRITZ_HOME/irexec.lircrc
 fi                                                    
 
-$FFINSTDIR/bin/ffdaemon $FFINSTDIR/bin/lircd -n -L $FFLOG -U $FFINSTDIR/lib/lirc/plugins -O $FFRITZ_HOME/lirc_options.conf -e ffritz $FFRITZ_HOME/etc/lirc/lircd.conf
-sleep 1
-$FFINSTDIR/bin/ffdaemon -r ffritz $FFINSTDIR/bin/irexec $FFRITZ_HOME/irexec.lircrc
+#$FFINSTDIR/bin/ffdaemon $FFINSTDIR/bin/lircd -n -L $FFLOG -U $FFINSTDIR/lib/lirc/plugins -O $FFRITZ_HOME/lirc_options.conf -e ffritz $FFRITZ_HOME/etc/lirc/lircd.conf
+#sleep 1
+#$FFINSTDIR/bin/ffdaemon -r ffritz $FFINSTDIR/bin/irexec $FFRITZ_HOME/irexec.lircrc
