@@ -41,8 +41,7 @@ if [ $addr -eq 1 ]; then
 
 	if [ "x$prule" != "x1194" ]; then
 		echo no forwarding rule for external port 1194 found
-		break;
-		#exit 1
+		exit 1
 	fi
 
 	# Make sure our pseudo interface is down
