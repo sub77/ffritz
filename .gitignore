@@ -1,0 +1,14 @@
+.gitignore
+packages/dl
+packages/x86/ffritz/*.md
+packages/x86/ffritz/ffimage*
+packages/x86/ffritz/*/
+release*/
+arm/.*
+atom/.*
+arm/orig/
+arm/squashfs-root/
+atom/orig/
+atom/squashfs-root/
+tmp/
+var/
