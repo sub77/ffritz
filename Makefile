@@ -2,6 +2,7 @@
 TOPDIR	= $(shell pwd)
 VERSION = $(shell cat version)
 ARM_VER = $(shell cat packages/arm/ffritz/version)
+REL_VER = $(shell date +%Y%m%d-%H%M)
 HOST    = $(shell uname -m)
 SUDO	= sudo
 
@@ -167,16 +168,16 @@ atom/filesystem.image: atom/.applied.fs
 #.PHONY:		$(RELDIR)
 
 ###############################################################################################
-release:    $(RELDIR)/fb6490_$(FWVER)-$(VERSION).tar
-	
-$(RELDIR)/fb6490_$(FWVER)-$(VERSION).tar: armfs atomfs $(RELDIR) 
+release:    $(RELDIR)/fb6490_$(FWVER)-$(VERSION)_$(REL_VER).tar
+
+$(RELDIR)/fb6490_$(FWVER)-$(VERSION)_$(REL_VER).tar: armfs atomfs $(RELDIR)
 	@rm -rf $(RELDIR)/var
 	@cd $(RELDIR); tar xf $(ORIG)
-	@echo "PACK   $(RELDIR)/fb6490_$(FWVER)-$(VERSION).tar"
+	@echo "PACK   $(RELDIR)/fb6490_$(FWVER)-$(VERSION)_$(REL_VER).tar"
 	@cp arm/filesystem.image $(RELDIR)/var/remote/var/tmp/filesystem.image
 	@cp arm/mod/usr/local/etc/switch_bootbank $(RELDIR)/var
 	@cp atom/filesystem.image $(RELDIR)/var/remote/var/tmp/x86/filesystem.image
-	@cd $(RELDIR); $(TAR) cf fb6490_$(FWVER)-$(VERSION).tar var
+	@cd $(RELDIR); $(TAR) cf fb6490_$(FWVER)-$(VERSION)_$(REL_VER).tar var
 	@rm -rf $(RELDIR)/var
 
 $(RELDIR):
