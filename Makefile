@@ -27,7 +27,7 @@ KEEP_ORIG = 1
 # to the ftp directory (-> /var/media/ftp/ffritz-arm)
 # To build: "make arm-package"
 #
-#FFRITZ_ARM_PACKAGE=../ffritz-arm-0.4.tar.gz
+FFRITZ_ARM_PACKAGE=../ffritz-arm-0.4.tar.gz
 
 
 ## Host tools (unsquashfs4-lzma-avm-be, mksquashfs4-lzma-avm-be) can either be built
