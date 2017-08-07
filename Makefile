@@ -7,6 +7,13 @@ REL_VER = $(shell date +%Y%m%d-%H%M)
 HOST    = $(shell uname -m)
 SUDO	= sudo
 
+CL_RED="\033[31m"
+CL_GRN="\033[32m"
+CL_YLW="\033[33m"
+CL_BLU="\033[34m"
+CL_MAG="\033[35m"
+CL_CYN="\033[36m"
+CL_RST="\033[0m"
 
 ###############################################################################################
 # Configuration
@@ -177,7 +184,7 @@ packages/x86/ffritz/ffritz-app-$(APP_VER).tar:
 	make -C packages/x86/ffritz |& colorize
 	@cp $@ $(RELDIR)/ffritz-app-$(APP_VER)_$(REL_VER).tar
 	@echo
-	@echo -e Successfully built $(RELDIR)/ffritz-app-$(APP_VER)_$(REL_VER).tar [`cat packages/x86/ffritz/ffimage.sha256sum`]
+	@echo -e $(CL_GRN)Successfully built $(RELDIR)/ffritz-app-$(APP_VER)_$(REL_VER).tar $(CL_YLW)[`cat packages/x86/ffritz/ffimage.sha256sum`]$(CL_RST)
 
 ###############################################################################################
 release:    $(RELDIR)/fb6490_$(FWVER)-$(VERSION)_$(REL_VER).tar
