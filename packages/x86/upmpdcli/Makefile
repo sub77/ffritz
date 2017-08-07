@@ -44,4 +44,4 @@ $(DFILE1):	$(BFILE)
 	@cd build; make install DESTDIR=$(TOPDIR)/output
 	
 clean:
-	rm -rf build
+	rm -rf build output

@@ -11,3 +11,6 @@ clean:
 
 cleanall:
 	make -C ffritz cleanall
+
+cleanbuildroot:
+	make -C ffritz cleanbuildroot

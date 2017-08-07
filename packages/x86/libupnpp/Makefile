@@ -34,4 +34,4 @@ install:
 	@cp -a output/usr/lib/lib*so* $(DESTDIR)/lib
 
 clean:
-	rm -rf build
+	rm -rf build output

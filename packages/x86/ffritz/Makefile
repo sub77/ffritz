@@ -92,7 +92,10 @@ install: $(BINFILES) $(ETCFILES) $(INSTDIRS) $(shell test -d $(BR_TGT_LIB) && ls
 	    done
 	
 clean: 
-	rm -rf output $(IMAGE) ffimage.bin
+	rm -rf output $(IMAGE) ffimage.bin ffimage.sha256sum
 
 cleanall:
+	for d in `echo $(SUBDIRS) | sed -e 's/..\/buildroot//g'`; do make -C $${d} clean; done
+
+cleanbuildroot:
 	for d in $(SUBDIRS); do make -C $${d} clean; done

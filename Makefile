@@ -227,3 +227,21 @@ clean:
 	rm -f atom/filesystem.image
 	rm -f atom/.applied*
 	rm -f .fwver.cache
+
+cleanatom:
+	@make -s -C packages/x86 clean
+
+cleanatomall:
+	@make -s -C packages/x86 cleanall
+
+cleanatombuildroot:
+	@make -s -C packages/x86 cleanbuildroot
+
+cleanrelease:
+	@rm -rf release*
+
+help:
+	@echo make release
+	@echo make app-package
+	@echo make arm-package
+	@echo make clean cleanatom cleanatomall cleanatombuildroot

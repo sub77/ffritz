@@ -1,6 +1,7 @@
 TARGET := libmaru.so.0.1
 SONAME := libmaru.so.0
 SONAME_SHORT := libmaru.so
+SONAME_CRUS := libmaru.a
 
 PREFIX = /usr/local
 
@@ -26,7 +27,7 @@ $(TARGET): $(OBJECTS)
 	$(CC) -o $@ $^ $(LDFLAGS)
 	ln -sf $@ $(SONAME)
 	ln -sf $(SONAME) libmaru.so
-	ar crus libmaru.a $^
+	ar crus $(SONAME_CRUS) $^
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS)
@@ -34,6 +35,9 @@ $(TARGET): $(OBJECTS)
 clean:
 	rm -f $(OBJECTS)
 	rm -f $(TARGET)
+	rm -f $(SONAME)
+	rm -f $(SONAME_SHORT)
+	rm -f $(SONAME_CRUS)
 
 install:
 	install -m755 $(TARGET) $(PREFIX)/lib
