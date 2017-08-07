@@ -1,6 +1,7 @@
 
 TOPDIR	= $(shell pwd)
 VERSION = $(shell cat version)
+APP_VER = $(shell cat packages/x86/ffritz/version)
 ARM_VER = $(shell cat packages/arm/ffritz/version)
 REL_VER = $(shell date +%Y%m%d-%H%M)
 HOST    = $(shell uname -m)
@@ -169,6 +170,14 @@ atom/filesystem.image: atom/.applied.fs
 	@cd atom; $(SUDO) mksquashfs squashfs-root filesystem.image -all-root -info -no-progress -no-exports -no-sparse -b 65536 >/dev/null
 
 #.PHONY:		$(RELDIR)
+
+app-package: packages/x86/ffritz/ffritz-app-$(APP_VER).tar
+
+packages/x86/ffritz/ffritz-app-$(APP_VER).tar:
+	make -C packages/x86/ffritz |& colorize
+	@cp $@ $(RELDIR)/ffritz-app-$(APP_VER)_$(REL_VER).tar
+	@echo
+	@echo -e Successfully built $(RELDIR)/ffritz-app-$(APP_VER)_$(REL_VER).tar [`cat packages/x86/ffritz/ffimage.sha256sum`]
 
 ###############################################################################################
 release:    $(RELDIR)/fb6490_$(FWVER)-$(VERSION)_$(REL_VER).tar
