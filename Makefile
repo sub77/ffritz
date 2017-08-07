@@ -148,6 +148,7 @@ tmp/atom/filesystem.image:
 atom/squashfs-root:  tmp/atom/filesystem.image
 	@if [ ! -d atom/squashfs-root ]; then cd atom; $(SUDO) unsquashfs $(TOPDIR)/tmp/atom/filesystem.image; fi
 	@if [ $(KEEP_ORIG) -eq 1 -a ! -d atom/orig ]; then cd atom; $(SUDO) unsquashfs -d orig $(TOPDIR)/tmp/atom/filesystem.image; fi
+	@$(SUDO) chmod 755 atom/squashfs-root
 
 $(ATOM_PATCHST):	$(@:atom/.applied.%=%)
 	@echo APPLY $(@:atom/.applied.%=%)
@@ -162,6 +163,8 @@ atom/.applied.fs: $(ATOM_MODFILES) atom/squashfs-root $(ATOM_PATCHST)
 
 atom/filesystem.image: atom/.applied.fs
 	@rm -f atom/filesystem.image
+	@echo "CHMOD  atom/squashfs-root"
+	@$(SUDO) chmod 600 atom/squashfs-root
 	@echo "PACK  atom/squashfs-root"
 	@cd atom; $(SUDO) mksquashfs squashfs-root filesystem.image -all-root -info -no-progress -no-exports -no-sparse -b 65536 >/dev/null
 
