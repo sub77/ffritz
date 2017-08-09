@@ -1,6 +1,6 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2013.02-gfa18f7b-dirty Configuration
+# Buildroot 2013.02-gf93c089 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 # BR2_arm is not set
@@ -254,7 +254,7 @@ BR2_BUSYBOX_VERSION_1_21_X=y
 # BR2_PACKAGE_BUSYBOX_SNAPSHOT is not set
 BR2_BUSYBOX_VERSION="1.21.0"
 BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.21.x.config"
-# BR2_PACKAGE_BUSYBOX_SHOW_OTHERS is not set
+BR2_PACKAGE_BUSYBOX_SHOW_OTHERS=y
 # BR2_PACKAGE_BUSYBOX_WATCHDOG is not set
 
 #
@@ -304,6 +304,7 @@ BR2_PACKAGE_MPG123=y
 # Compressors and decompressors
 #
 BR2_PACKAGE_BZIP2=y
+# BR2_PACKAGE_GZIP is not set
 # BR2_PACKAGE_INFOZIP is not set
 # BR2_PACKAGE_LZOP is not set
 # BR2_PACKAGE_XZ is not set
@@ -319,6 +320,7 @@ BR2_PACKAGE_BZIP2=y
 # BR2_PACKAGE_KEXEC is not set
 # BR2_PACKAGE_LATENCYTOP is not set
 # BR2_PACKAGE_LMBENCH is not set
+# BR2_PACKAGE_LSOF is not set
 # BR2_PACKAGE_LTP_TESTSUITE is not set
 # BR2_PACKAGE_LTRACE is not set
 # BR2_PACKAGE_MEMSTAT is not set
@@ -343,19 +345,27 @@ BR2_PACKAGE_STRACE=y
 # BR2_PACKAGE_BINUTILS is not set
 # BR2_PACKAGE_BISON is not set
 # BR2_PACKAGE_BSDIFF is not set
+# BR2_PACKAGE_COREUTILS is not set
 # BR2_PACKAGE_CVS is not set
+# BR2_PACKAGE_DIFFUTILS is not set
 # BR2_PACKAGE_DISTCC is not set
+# BR2_PACKAGE_FINDUTILS is not set
 # BR2_PACKAGE_FLEX is not set
+# BR2_PACKAGE_GAWK is not set
 BR2_PACKAGE_GETTEXT=y
 # BR2_PACKAGE_GETTEXT_TOOLS is not set
 BR2_PACKAGE_GMP=y
 # BR2_PACKAGE_GPERF is not set
+# BR2_PACKAGE_GREP is not set
 # BR2_PACKAGE_MPC is not set
 # BR2_PACKAGE_MPFR is not set
 # BR2_PACKAGE_LIBTOOL is not set
 # BR2_PACKAGE_M4 is not set
+# BR2_PACKAGE_PATCH is not set
 # BR2_PACKAGE_PKGCONF is not set
+# BR2_PACKAGE_SED is not set
 # BR2_PACKAGE_SSTRIP is not set
+# BR2_PACKAGE_TAR is not set
 # BR2_PACKAGE_VALA is not set
 # BR2_PACKAGE_YASM is not set
 
@@ -381,6 +391,7 @@ BR2_PACKAGE_GMP=y
 # BR2_PACKAGE_DIRECTFB is not set
 # BR2_PACKAGE_FBDUMP is not set
 # BR2_PACKAGE_FBGRAB is not set
+# BR2_PACKAGE_FBSET is not set
 # BR2_PACKAGE_FBTERM is not set
 # BR2_PACKAGE_FBV is not set
 # BR2_PACKAGE_FB_TEST_APP is not set
@@ -446,6 +457,7 @@ BR2_PACKAGE_GMP=y
 # BR2_PACKAGE_ACPID is not set
 # BR2_PACKAGE_CDRKIT is not set
 # BR2_PACKAGE_DBUS is not set
+# BR2_PACKAGE_DEVMEM2 is not set
 # BR2_PACKAGE_DMIDECODE is not set
 # BR2_PACKAGE_DMRAID is not set
 # BR2_PACKAGE_DVB_APPS is not set
@@ -461,6 +473,7 @@ BR2_PACKAGE_GMP=y
 # BR2_PACKAGE_GDISK is not set
 # BR2_PACKAGE_GPSD is not set
 # BR2_PACKAGE_GVFS is not set
+# BR2_PACKAGE_HDPARM is not set
 # BR2_PACKAGE_HWDATA is not set
 # BR2_PACKAGE_I2C_TOOLS is not set
 # BR2_PACKAGE_INPUT_EVENT_DAEMON is not set
@@ -856,6 +869,7 @@ BR2_PACKAGE_EXPAT=y
 # BR2_PACKAGE_CTORRENT is not set
 # BR2_PACKAGE_CONNTRACK_TOOLS is not set
 # BR2_PACKAGE_CUPS is not set
+# BR2_PACKAGE_DHCP is not set
 # BR2_PACKAGE_DHCPDUMP is not set
 # BR2_PACKAGE_DNSMASQ is not set
 # BR2_PACKAGE_DROPBEAR is not set
@@ -866,6 +880,7 @@ BR2_PACKAGE_EXPAT=y
 # BR2_PACKAGE_HIAWATHA is not set
 # BR2_PACKAGE_HOSTAPD is not set
 # BR2_PACKAGE_HTTPING is not set
+# BR2_PACKAGE_IFPLUGD is not set
 # BR2_PACKAGE_IFTOP is not set
 # BR2_PACKAGE_INADYN is not set
 # BR2_PACKAGE_IPERF is not set
@@ -887,6 +902,7 @@ BR2_PACKAGE_EXPAT=y
 # BR2_PACKAGE_NBD is not set
 # BR2_PACKAGE_NCFTP is not set
 # BR2_PACKAGE_NDISC6 is not set
+# BR2_PACKAGE_NETCAT is not set
 # BR2_PACKAGE_NETATALK is not set
 # BR2_PACKAGE_NETPLUG is not set
 # BR2_PACKAGE_NETSNMP is not set
@@ -904,6 +920,7 @@ BR2_PACKAGE_EXPAT=y
 BR2_PACKAGE_OPENVPN=y
 BR2_PACKAGE_OPENVPN_LZO=y
 BR2_PACKAGE_OPENVPN_SMALL=y
+# BR2_PACKAGE_OPENVPN_PASSWORD_SAVE is not set
 BR2_PACKAGE_OPENVPN_CRYPTO_OPENSSL=y
 # BR2_PACKAGE_OPENVPN_CRYPTO_POLARSSL is not set
 # BR2_PACKAGE_PORTMAP is not set
@@ -933,6 +950,7 @@ BR2_PACKAGE_SOCAT=y
 BR2_PACKAGE_TCPDUMP=y
 # BR2_PACKAGE_TCPDUMP_SMB is not set
 BR2_PACKAGE_TCPREPLAY=y
+# BR2_PACKAGE_TFTPD is not set
 # BR2_PACKAGE_THTTPD is not set
 # BR2_PACKAGE_TINYHTTPD is not set
 # BR2_PACKAGE_TN5250 is not set
@@ -945,6 +963,7 @@ BR2_PACKAGE_TCPREPLAY=y
 # BR2_PACKAGE_VPNC is not set
 # BR2_PACKAGE_VSFTPD is not set
 # BR2_PACKAGE_VTUN is not set
+# BR2_PACKAGE_WGET is not set
 # BR2_PACKAGE_WIRELESS_TOOLS is not set
 # BR2_PACKAGE_WPA_SUPPLICANT is not set
 # BR2_PACKAGE_XINETD is not set
@@ -957,6 +976,10 @@ BR2_PACKAGE_TCPREPLAY=y
 # BR2_PACKAGE_OPKG is not set
 
 #
+# rpm requires libneon with SSL, XML and ZLIB support
+#
+
+#
 # Real-Time
 #
 # BR2_PACKAGE_XENOMAI is not set
@@ -965,6 +988,8 @@ BR2_PACKAGE_TCPREPLAY=y
 # Shell and utilities
 #
 # BR2_PACKAGE_AT is not set
+BR2_PACKAGE_BASH=y
+# BR2_PACKAGE_DASH is not set
 # BR2_PACKAGE_DIALOG is not set
 # BR2_PACKAGE_FILE is not set
 # BR2_PACKAGE_GNUPG is not set
@@ -974,6 +999,8 @@ BR2_PACKAGE_TCPREPLAY=y
 # BR2_PACKAGE_LOGSURFER is not set
 # BR2_PACKAGE_SCREEN is not set
 # BR2_PACKAGE_SUDO is not set
+# BR2_PACKAGE_TIME is not set
+# BR2_PACKAGE_WHICH is not set
 # BR2_PACKAGE_XMLSTARLET is not set
 
 #
@@ -981,15 +1008,22 @@ BR2_PACKAGE_TCPREPLAY=y
 #
 # BR2_PACKAGE_ACL is not set
 # BR2_PACKAGE_ATTR is not set
+# BR2_PACKAGE_BOOTUTILS is not set
 # BR2_PACKAGE_BWM_NG is not set
 # BR2_PACKAGE_CPULOAD is not set
 # BR2_PACKAGE_HTOP is not set
 # BR2_PACKAGE_KEYUTILS is not set
 # BR2_PACKAGE_KMOD is not set
+# BR2_PACKAGE_MODULE_INIT_TOOLS is not set
 # BR2_PACKAGE_MONIT is not set
 # BR2_PACKAGE_NCDU is not set
 # BR2_PACKAGE_POLKIT is not set
+# BR2_PACKAGE_PROCPS is not set
+# BR2_PACKAGE_PSMISC is not set
 # BR2_PACKAGE_QUOTA is not set
+# BR2_PACKAGE_RSYSLOG is not set
+# BR2_PACKAGE_SYSKLOGD is not set
+# BR2_PACKAGE_SYSVINIT is not set
 
 #
 # supervisor needs the python interpreter
@@ -1004,8 +1038,10 @@ BR2_PACKAGE_TCPREPLAY=y
 # Text editors and viewers
 #
 # BR2_PACKAGE_ED is not set
+# BR2_PACKAGE_LESS is not set
 # BR2_PACKAGE_NANO is not set
 # BR2_PACKAGE_UEMACS is not set
+# BR2_PACKAGE_VIM is not set
 
 #
 # Host utilities

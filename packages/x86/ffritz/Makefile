@@ -20,9 +20,12 @@ BINFILES   += $(BR_TGT_BIN)/mpc $(BR_TGT_BIN)/rsync $(BR_TGT_BIN)/socat
 BINFILES   += $(BR_TGT)/../host/usr/i686-buildroot-linux-uclibc/sysroot/usr/bin/curl
 BINFILES   += $(BR_TGT_SBIN)/openvpn
 BINFILES   += ../shairport/build/shairport
+BINFILES   += ../shairport/build/shairport
+BINFILES   += $(BR_TGT)/bin/bash
 ETCFILES    = etc/ffritz-env.sh etc/mpd.conf etc/runmpd etc/ff_atom_startup etc/ffservices etc/run_usbplay etc/run_shairport etc/mkusers
 ETCFILES   += etc/run_lircd etc/lirc_options_dfl.conf etc/upmpdcli.conf-dist
 ETCFILES   += etc/run_openvpn etc/usrmount
+ETCFILES   += etc/bash.bashrc
 MODFILES    = lib/modules/cdc-acm.ko
 
 STAGEDIR    = $(TOPDIR)/output/ffritz
@@ -74,6 +77,7 @@ install: $(BINFILES) $(ETCFILES) $(INSTDIRS) $(shell test -d $(BR_TGT_LIB) && ls
 	cp -a  $(shell ls  $(BR_TGT_LIB)/lib*so*) $(INSTDIR)/lib
 	cp $(ETCFILES) $(INSTDIR)/etc
 	cp -ar etc/openvpn $(INSTDIR)/etc
+	cp -ar etc/init.d/ $(INSTDIR)/etc/init.d/
 	sed -i -e 's@^rundir=.*@rundir=/var/media/ftp/ffritz@' $(INSTDIR)/etc/ff_atom_startup
 	make -C ../lirc install DESTDIR=$(INSTDIR)
 	make -C ../libupnpp install DESTDIR=$(INSTDIR)
