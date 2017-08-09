@@ -1,6 +1,6 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2013.02-gf93c089 Configuration
+# Buildroot 2013.02-g8daacb1 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 # BR2_arm is not set
@@ -920,7 +920,7 @@ BR2_PACKAGE_EXPAT=y
 BR2_PACKAGE_OPENVPN=y
 BR2_PACKAGE_OPENVPN_LZO=y
 BR2_PACKAGE_OPENVPN_SMALL=y
-# BR2_PACKAGE_OPENVPN_PASSWORD_SAVE is not set
+BR2_PACKAGE_OPENVPN_PASSWORD_SAVE=y
 BR2_PACKAGE_OPENVPN_CRYPTO_OPENSSL=y
 # BR2_PACKAGE_OPENVPN_CRYPTO_POLARSSL is not set
 # BR2_PACKAGE_PORTMAP is not set

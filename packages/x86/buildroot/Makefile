@@ -12,6 +12,7 @@ arch-patches:	.gcc.patch.applied
 	@diff -qN mod/config build/.config || cp mod/config build/.config
 	@diff -qN mod/uClibc-0.9.33.config build/toolchain/uClibc/uClibc-0.9.33.config || cp mod/uClibc-0.9.33.config build/toolchain/uClibc/uClibc-0.9.33.config
 	@diff -qN mod/bash.mk build/package/bash/bash.mk || cp mod/bash.mk build/package/bash/bash.mk
+	@diff -qN mod/openvpn.mk build/package/openvpn/openvpn.mk || cp mod/openvpn.mk build/package/openvpn/openvpn.mk
 	
 .gcc.patch.applied:
 	tar xf gcc-4.9.3.tar
