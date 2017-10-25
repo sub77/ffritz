@@ -1,6 +1,6 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2013.02-gfa18f7b-dirty Configuration
+# Buildroot 2013.02-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 # BR2_arm is not set
@@ -724,7 +724,8 @@ BR2_PACKAGE_LIBMICROHTTPD_SSL=y
 # BR2_PACKAGE_LIBNETFILTER_LOG is not set
 # BR2_PACKAGE_LIBNETFILTER_QUEUE is not set
 # BR2_PACKAGE_LIBNFNETLINK is not set
-# BR2_PACKAGE_LIBNL is not set
+BR2_PACKAGE_LIBNL=y
+# BR2_PACKAGE_LIBNL_TOOLS is not set
 # BR2_PACKAGE_LIBOPING is not set
 BR2_PACKAGE_LIBPCAP=y
 # BR2_PACKAGE_LIBOSIP2 is not set
@@ -873,7 +874,7 @@ BR2_PACKAGE_EXPAT=y
 # BR2_PACKAGE_IPSEC_TOOLS is not set
 # BR2_PACKAGE_IPSET is not set
 # BR2_PACKAGE_IPTABLES is not set
-# BR2_PACKAGE_IW is not set
+BR2_PACKAGE_IW=y
 # BR2_PACKAGE_KISMET is not set
 # BR2_PACKAGE_LIGHTTPD is not set
 # BR2_PACKAGE_LINKS is not set
@@ -945,7 +946,8 @@ BR2_PACKAGE_TCPREPLAY=y
 # BR2_PACKAGE_VPNC is not set
 # BR2_PACKAGE_VSFTPD is not set
 # BR2_PACKAGE_VTUN is not set
-# BR2_PACKAGE_WIRELESS_TOOLS is not set
+BR2_PACKAGE_WIRELESS_TOOLS=y
+BR2_PACKAGE_WIRELESS_TOOLS_LIB=y
 # BR2_PACKAGE_WPA_SUPPLICANT is not set
 # BR2_PACKAGE_XINETD is not set
 # BR2_PACKAGE_XL2TP is not set
