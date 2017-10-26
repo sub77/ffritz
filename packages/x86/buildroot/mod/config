@@ -1,6 +1,6 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2013.02-dirty Configuration
+# Buildroot 2013.02-g6ac2da0 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 # BR2_arm is not set
@@ -1006,7 +1006,8 @@ BR2_PACKAGE_WIRELESS_TOOLS_LIB=y
 # Text editors and viewers
 #
 # BR2_PACKAGE_ED is not set
-# BR2_PACKAGE_NANO is not set
+BR2_PACKAGE_NANO=y
+BR2_PACKAGE_NANO_TINY=y
 # BR2_PACKAGE_UEMACS is not set
 
 #

@@ -16,7 +16,7 @@ BR_TGT_SBIN = $(BR_TGT)/usr/sbin
 BINFILES    = ../mpd/build/src/mpd src/sndlist src/usbplay src/usbplayd src/ffdaemon
 BINFILES   += $(BR_TGT_BIN)/strace $(BR_TGT_BIN)/ldd $(BR_TGT_SBIN)/tcpdump 
 BINFILES   += $(BR_TGT_BIN)/tcpbridge $(BR_TGT_BIN)/tcpprep $(BR_TGT_BIN)/tcpreplay $(BR_TGT_BIN)/tcpreplay-edit $(BR_TGT_BIN)/tcprewrite
-BINFILES   += $(BR_TGT_BIN)/mpc $(BR_TGT_BIN)/rsync $(BR_TGT_BIN)/socat 
+BINFILES   += $(BR_TGT_BIN)/mpc $(BR_TGT_BIN)/rsync $(BR_TGT_BIN)/socat  $(BR_TGT_BIN)/nano
 BINFILES   += $(BR_TGT)/../host/usr/i686-buildroot-linux-uclibc/sysroot/usr/bin/curl
 BINFILES   += $(BR_TGT)/sbin/iwconfig
 BINFILES   += $(BR_TGT_SBIN)/openvpn $(BR_TGT_SBIN)/iw
@@ -70,6 +70,7 @@ install: $(BINFILES) $(ETCFILES) $(INSTDIRS) $(shell test -d $(BR_TGT_LIB) && ls
 	mkdir -p $(INSTDIR)/bin/exec
 	mkdir -p $(INSTDIR)/lib/modules
 	mkdir -p $(INSTDIR)/etc
+	cp -r $(BR_TGT)/usr/share/terminfo $(INSTDIR)/usr/share/terminfo
 	cp -a $(BINFILES) $(INSTDIR)/bin
 	cp -a $(MODFILES) $(INSTDIR)/lib/modules
 	cp -a  $(shell ls  $(BR_TGT_LIB)/lib*so*) $(INSTDIR)/lib
