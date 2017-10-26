@@ -19,11 +19,11 @@ BINFILES   += $(BR_TGT_BIN)/tcpbridge $(BR_TGT_BIN)/tcpprep $(BR_TGT_BIN)/tcprep
 BINFILES   += $(BR_TGT_BIN)/mpc $(BR_TGT_BIN)/rsync $(BR_TGT_BIN)/socat  $(BR_TGT_BIN)/nano
 BINFILES   += $(BR_TGT)/../host/usr/i686-buildroot-linux-uclibc/sysroot/usr/bin/curl
 BINFILES   += $(BR_TGT)/sbin/iwconfig
-BINFILES   += $(BR_TGT_SBIN)/openvpn $(BR_TGT_SBIN)/iw
+BINFILES   += $(BR_TGT_SBIN)/openvpn $(BR_TGT_SBIN)/iw $(BR_TGT_SBIN)/dnsmasq
 BINFILES   += ../shairport/build/shairport
 ETCFILES    = etc/ffritz-env.sh etc/mpd.conf etc/runmpd etc/ff_atom_startup etc/ffservices etc/run_usbplay etc/run_shairport etc/mkusers
 ETCFILES   += etc/run_lircd etc/lirc_options_dfl.conf etc/upmpdcli.conf-dist etc/run_bluetooth
-ETCFILES   += etc/run_openvpn etc/usrmount
+ETCFILES   += etc/run_openvpn etc/usrmount etc/run_dnsmasq etc/dnsmasq_dfl.conf
 MODFILES    = lib/modules/cdc-acm.ko
 
 STAGEDIR    = $(TOPDIR)/output/ffritz

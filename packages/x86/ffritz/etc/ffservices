@@ -74,5 +74,14 @@ else
 	echo OpenVPN not started
 fi
 
+# and dnsmasq
+#
+if [ -x $FFINSTDIR/etc/run_dnsmasq -a ! -f /var/media/ftp/.skip_dnsmasq ]; then
+    echo Starting dnsmasq
+    $FFINSTDIR/etc/run_dnsmasq
+else
+    echo dnsmasq not started 
+fi
+
 ) | tee -a $FFLOG 2>&1 &
 

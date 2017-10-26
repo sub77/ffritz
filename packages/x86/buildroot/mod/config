@@ -1,6 +1,6 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2013.02-g6ac2da0 Configuration
+# Buildroot 2013.02-g92e2023 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 # BR2_arm is not set
@@ -858,7 +858,12 @@ BR2_PACKAGE_EXPAT=y
 # BR2_PACKAGE_CONNTRACK_TOOLS is not set
 # BR2_PACKAGE_CUPS is not set
 # BR2_PACKAGE_DHCPDUMP is not set
-# BR2_PACKAGE_DNSMASQ is not set
+BR2_PACKAGE_DNSMASQ=y
+BR2_PACKAGE_DNSMASQ_TFTP=y
+BR2_PACKAGE_DNSMASQ_DHCP=y
+# BR2_PACKAGE_DNSMASQ_IDN is not set
+# BR2_PACKAGE_DNSMASQ_LUA is not set
+# BR2_PACKAGE_DNSMASQ_CONNTRACK is not set
 # BR2_PACKAGE_DROPBEAR is not set
 # BR2_PACKAGE_EBTABLES is not set
 # BR2_PACKAGE_ETHTOOL is not set
