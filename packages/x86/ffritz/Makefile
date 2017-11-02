@@ -70,7 +70,9 @@ install: $(BINFILES) $(ETCFILES) $(INSTDIRS) $(shell test -d $(BR_TGT_LIB) && ls
 	mkdir -p $(INSTDIR)/bin/exec
 	mkdir -p $(INSTDIR)/lib/modules
 	mkdir -p $(INSTDIR)/etc
-	cp -r $(BR_TGT)/usr/share/terminfo $(INSTDIR)/usr/share/terminfo
+	mkdir -p $(INSTDIR)/share
+	cp -r $(BR_TGT)/usr/share/terminfo $(INSTDIR)/share/terminfo
+	cp misc/xterm-256color $(INSTDIR)/share/terminfo/x/
 	cp -a $(BINFILES) $(INSTDIR)/bin
 	cp -a $(MODFILES) $(INSTDIR)/lib/modules
 	cp -a  $(shell ls  $(BR_TGT_LIB)/lib*so*) $(INSTDIR)/lib
