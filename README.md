@@ -201,7 +201,7 @@ The image is distributed as ffritz-app-VERSION.tar. To install it,
   The checksum is the sha256sum listed on the download page. It is also contained
   in the file ffimage.sha256sum within the release .tar archive.
 
-- After the success message, restart the box.
+- After the success message, restart the box (or read the next chapter)
 
 Steps performed by the startup script:
 
@@ -210,6 +210,17 @@ Steps performed by the startup script:
 - if it matches, ffimage.bin is mounted to /usr/local
 - The target checksum is saved in the encrypted persistent storage.
 - Execute /usr/local/etc/ff_atom_startup
+
+Restart services without box reboot
+-----------------------------------
+If you don't want to restart the box after installing a new image:
+- Stop all ffritz services:
+
+	cp /usr/local/etc/ffshutdown /tmp; /tmp/ffshutdown
+
+- If prompted, kill processes still using /usr/local, and re-run ffshutdown
+- Run mount script for new image: /etc/init.d/S93-ffimage
+- Start services: /etc/init.d/S94-ffstart
 
 Optional Arm package
 --------------------

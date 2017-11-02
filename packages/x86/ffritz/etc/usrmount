@@ -12,7 +12,16 @@
 # Lines with two ..'s are not considered to avoid remounting
 # of system directories.
 #
+# Usage: usrmount [-u] mtab
+#
 . `dirname $0`/ffritz-env.sh || exit 1
+
+do_unmount=0
+
+if [ "$1" = "-u" ]; then
+	do_unmount=1
+	shift
+fi
 
 if [ ! -r $1 ]; then
 exit 1
@@ -25,5 +34,9 @@ grep MOUNT $1 | grep -v '\.\.' | grep nfs:// | while read line; do
 	mountpoint=/var/media/ftp/$1
 	shift
 	mountopts=$*
-	$FFINSTDIR/bin/fuse-nfs -m $mountpoint -n $mountopts
+	if [ $do_unmount -eq 0 ]; then
+		$FFINSTDIR/bin/fuse-nfs -m $mountpoint -n $mountopts
+	else
+		umount $mountpoint
+	fi
 done

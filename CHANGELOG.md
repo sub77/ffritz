@@ -1,6 +1,16 @@
 Change history of application package
 =====================================
 
+Release 4
+---------
+- Fix tmpfs memory leak: fflogrotate got lost along the way,
+  /var/log/ffritz.log could become big over time.
+- Fix upmpdcli startup issue
+- Limit logrotate backup to 250K
+- ffdaemon: can be stopped with SIGTERM, will reap worker
+- Added etc/ffshutdown
+- Added -u option to etc/usrmount
+
 Release 3
 ---------
 - Add 100 second startup angst delay.
@@ -17,17 +27,19 @@ Release 2
 
     USBPLAYD_ARGS=-P /var/tmp/mpd.fifo:44100 -P /var/tmp/shairport.fifo:44100 -P /var/tmp/bt.fifo:44100
 
-- TODO
-	- Bluetooth
-		- Play pipe should not be opened until playback
-		  starts.
-		- Provide proper pairing (e.g. only when pressing
-		  WPS button..)
-
 Release 1
 ---------
 - Renamed from release 14 of combined core/application release
 - Re-packaged as squashfs binary to be installed using ffinstall
+
+TODO
+----
+- Bluetooth
+	- Play pipe should not be opened until playback
+	  starts.
+	- Provide proper pairing (e.g. only when pressing
+	  WPS button..)
+
 
 Change history of ffritz core integration:
 ==========================================
@@ -74,10 +86,6 @@ release 15
 	- add build of privatekeypassword
 	- Change license of source to GPLv3 to be compatible with
 	  apache code
-
-- TODO
-	- libfuse nfs mounts can't be accessed by mpd
-	- .....
 
 release 14
 ----------

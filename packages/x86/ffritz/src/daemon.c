@@ -42,7 +42,7 @@
 
 /*================================== LOCALS =================================*/
 static int worker_pid = 0;
-static char *pidfile = "/var/run/mcmsgd.pid";
+static char *pidfile = NULL;
 static FILE *dflConsOut = NULL;
 static FILE *logFile = NULL;
 
@@ -52,7 +52,18 @@ static FILE *logFile = NULL;
 */
 static void exit_fcn (void)
 {
-    unlink (pidfile);
+    if (worker_pid > 0)
+    {
+	kill (worker_pid, SIGTERM);
+	sleep (2);
+	kill (worker_pid, SIGKILL);
+	worker_pid = 0;
+    }
+
+    if (pidfile)
+	unlink (pidfile);
+
+    pidfile = NULL;
 }
 
 static void cleanup()
@@ -72,21 +83,24 @@ static void prep_pid_file (char *pdfile)
     signal (SIGQUIT, cleanup);
     signal (SIGHUP, cleanup);
     signal (SIGKILL, cleanup);
-    signal (SIGTERM, SIG_IGN);
+    signal (SIGTERM, cleanup);
     signal (SIGBUS, cleanup);
 
-    pidfile = pdfile;
-    
-    pf = fopen (pidfile, "w");
+    if (pdfile)
+    {
+	pidfile = pdfile;
+	
+	pf = fopen (pidfile, "w");
 
-    if (pf)
-    {
-        fprintf (pf, "%d", getpid());
-        fclose (pf);
-    }
-    else
-    {
-        log_put ("Failed to write PID file %s\n", pidfile);    
+	if (pf)
+	{
+	    fprintf (pf, "%d", getpid());
+	    fclose (pf);
+	}
+	else
+	{
+	    log_put ("Failed to write PID file %s\n", pidfile);    
+	}
     }
 }
 
@@ -248,6 +262,8 @@ int daemon2 (char *pdfile, int interval, int loops, int nochdir, int noclose)
         if (status)
             log_put ("worker process terminated with status %d (pid %d)\n", 
                     status, worker_pid);
+
+	worker_pid = 0;
 
  	loop++;
 	if ((loops > 0) && (loop >= loops))

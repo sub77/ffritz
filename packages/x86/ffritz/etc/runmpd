@@ -51,5 +51,4 @@ $FFINSTDIR/bin/ffdaemon -r ffritz $FFINSTDIR/bin/mpd --no-daemon $FFRITZ_HOME/mp
 # Run upmpdcli (UPNP frontent to MPD)
 #
 sleep 1
-$FFINSTDIR/bin/upmpdcli -c $FFRITZ_HOME/upmpdcli.conf -D
-
+$FFINSTDIR/bin/ffdaemon $FFINSTDIR/bin/upmpdcli -c $FFRITZ_HOME/upmpdcli.conf 

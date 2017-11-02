@@ -23,7 +23,7 @@ BINFILES   += $(BR_TGT_SBIN)/openvpn $(BR_TGT_SBIN)/iw $(BR_TGT_SBIN)/dnsmasq $(
 BINFILES   += ../shairport/build/shairport
 ETCFILES    = etc/ffritz-env.sh etc/mpd.conf etc/runmpd etc/ff_atom_startup etc/ffservices etc/run_usbplay etc/run_shairport etc/mkusers
 ETCFILES   += etc/run_lircd etc/lirc_options_dfl.conf etc/upmpdcli.conf-dist etc/run_bluetooth
-ETCFILES   += etc/run_openvpn etc/usrmount etc/run_dnsmasq etc/dnsmasq_dfl.conf etc/run_thttpd etc/thttpd_dfl.conf
+ETCFILES   += etc/run_openvpn etc/usrmount etc/fflogrotate etc/ffshutdown etc/run_dnsmasq etc/dnsmasq_dfl.conf etc/run_thttpd etc/thttpd_dfl.conf
 MODFILES    = lib/modules/cdc-acm.ko
 
 STAGEDIR    = $(TOPDIR)/output/ffritz

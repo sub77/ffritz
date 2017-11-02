@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Hack to stop ffritz daemons and unmount /usr/local
+
+killall ffdaemon
+killall usbplayd
+killall shairport
+if [ -f /var/media/ftp/ffritz/.mtab ]; then
+	/usr/local/etc/usrmount -u /var/media/ftp/ffritz/.mtab >/dev/null 2>&1
+fi
+sleep 5
+
+umount /usr/local && exit 0
+
+echo Some processes still access /usr/local:
+lsof /usr/local
+

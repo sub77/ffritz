@@ -2,9 +2,11 @@
 #
 LOGFILES="/var/log/ffritz.log /var/log/openvpn.log"
 
+max=250000
+
 for f in $LOGFILES; do
-if [ -f $f -a `wc -c < $f` -gt 250000 ]; then
-    cp ${f} ${f}.1
+if [ -f $f -a `wc -c < $f` -gt $max ]; then
+    tail -c $max ${f} > ${f}.1
     echo > $f
 fi
 done

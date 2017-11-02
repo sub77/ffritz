@@ -6,6 +6,9 @@
 
 . `dirname $0`/../etc/ffritz-env.sh || exit 1
 
+touch $FFLOG
+chmod 666 $FFLOG
+
 # Start services
 #
 (
