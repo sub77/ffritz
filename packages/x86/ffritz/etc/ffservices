@@ -80,7 +80,16 @@ if [ -x $FFINSTDIR/etc/run_dnsmasq -a ! -f /var/media/ftp/.skip_dnsmasq ]; then
     echo Starting dnsmasq
     $FFINSTDIR/etc/run_dnsmasq
 else
-    echo dnsmasq not started 
+    echo dnsmasq not started
+fi
+
+# and thttpd
+#
+if [ -x $FFINSTDIR/etc/run_thttpd -a ! -f /var/media/ftp/.skip_thttpd ]; then
+    echo starting tHTTPd
+    $FFINSTDIR/etc/run_thttpd
+else
+    echo thttpd not started
 fi
 
 ) | tee -a $FFLOG 2>&1 &

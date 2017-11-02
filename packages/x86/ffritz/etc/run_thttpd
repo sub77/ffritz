@@ -1,0 +1,12 @@
+#!/bin/sh
+#        
+# thttpd startup file
+#                   
+. `dirname $0`/../etc/ffritz-env.sh || exit 1
+
+if [ ! -f $FFRITZ_HOME/thttpd.conf ]; then
+    cp $FFINSTDIR/etc/thttpd_dfl.conf $FFRITZ_HOME/thttpd.conf
+    chown ffritz:ffritz $FFRITZ_HOME/thttpd.conf
+fi
+
+ffdaemon thttpd -C /var/media/ftp/ffritz/thttpd.conf
